@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <meta charset="UTF-8"><!-- utf8-without-bom -->
+ <title>DataSet4Access</title>
+ <style type="text/css">
+  body {
+         background-color:#fafafa;
+         font-family:verdana,sans-serif;
+         text-align:center;
+  }
+  body.lavendero { background-color:Lavender; }
+  div.ChapterFaceNormal { margin:0 auto; max-width:780px; width:84%; background-color:#fcfcfc; padding:0.9em; margin-top:0.9em; margin-bottom:1.1em; }
+  p.toptitlecrumbs { color:#0000f0; font-size:1.20em; margin-bottom:0.2em; margin-top:0.2em; text-align:center; }
+  h1 { text-align:center; color:#0000f0; font-size:1.90em; }
+  h2 { text-align:center; color:#3000c0; font-size:1.60em; }
+  h3 { text-align:left; color:#600090; font-size:1.30em; }
+  a.extern {
+     padding-left:12px;
+     background-image:url(./img/20091221o152103.extern.png);
+     background-position:left center;
+     background-repeat:no-repeat;
+  }
+  a.extern:hover { background-color:LemonChiffon;}
+  p.imageCenter { text-align:center; margin-left:auto; margin-right:auto; color:Green; }
+  p.iconFloatLeft { clear:left; margin-left:48px; text-align:left; }
+  img.iconFloatLeft { float:left; margin:0 20px 20px 0; margin-left:-48px; }
+  .timestamp { color:Turquoise; font-size:x-small; font-family: ComicJensWeb, sans-serif; display:none; }
+  .code { font-family:monospace,monospace; font-size:1.00em; padding:0.09em; background:#fff0f0; }
+  .codesmall  { font-family:monospace,monospace; font-size:0.88em; padding:0.09em; background:#fff0f0; }
+  p.goodbye { font-family: ComicJensWeb, sans-serif; margin-top:2.1em; font-size:small; }
+  p.imprint { color:#808080; font-size:0.77em; margin-bottom:0.1em; margin-right:1.1em; margin-top:2.4em; text-align:right; }
+  a.imprintHref  { color:#808080; }
+  p.footer { border-top:1px solid; color:#808080; font-size:0.77em; margin-bottom:1.6em; margin-top:0.1%; }
+  span.footerCopy    { margin-left:0.6em; }
+  span.footerFile    { margin-left:0.6em; }
+  span.footerImprint { margin-top:-1.6em; margin-left:0.6em; }
+  span.footerLastUpdate  { font-family: ComicJensWeb, sans-serif; font-size:1.11em; margin-left:1.1em; margin-right:1.1em; color:green; }
+  span.footerLicense { margin-top:-1.6em; margin-left:0.6em; }
+  span.footerTimst   { font-family: ComicJensWeb, sans-serif; font-size:0.77em; margin-left:0.9em; display:none; }
+  span.footerVersions { display:none; font-size:small; margin-left:0.9em; }
+
+  li { text-align:left; }
+  p { text-align:left; }
+  td { text-align:left; }
+
+  ol { text-indent:0.0; text-align:left; }
+  ul { text-indent:0.0; text-align:left; }
+  li { margin-top:0.4em; margin-bottom:0.4em; }
+
+  pre { font-family:monospace,monospace; font-size:1.0em; text-align:left; padding:0.5em; }
+  tt { font-family:monospace,monospace; font-size:1.0em; }
+
+/* --------------------------------------------------- */
+/* (X) Provide custom font 'ComicJens' (seq 20140324°0731) */
+/* note : Remember issue 20160611°0111 'something wrong with @font-face'.
+/* ref : Sequence after http://www.netzallee.de/extra/comic-jens (ws 20140324°0711) */
+/* ref : Homepage https://www.kutilek.de/comic-jens/free (ws 20170306°0313) */
+/* (X.1) Erst für IE, er kennt nur das EOT-Format */
+@font-face {
+   font-family: ComicJensWeb;
+   /* src: url(http://fonts.netzallee.de/comicjens/comicjenspro-regular.eot); */
+   src: url(./img/comicjenspro-regular.eot);
+}
+/* (X.2) Dann die TrueType-Datei für andere Browser */
+@font-face {
+   font-family: ComicJensWeb;
+   /* src: url(http://fonts.netzallee.de/comicjens/comicjenspro-regular.ttf) format('opentype'); */
+   src: url(./img/comicjenspro-regular.ttf) format('opentype');
+}
+/* (X.3) Nun das neue WOFF-Format für Firefox */
+@font-face {
+   font-family: ComicJensWeb;
+   /* src: url(http://fonts.netzallee.de/comicjens/comicjenspro-regular.woff) format('woff'); */
+   src: url(./img/comicjenspro-regular.woff) format('woff');
+}
+/* (X.4) Nun kann man die Schrift ganz normal per CSS ansprechen: */
+/*         body { font-family: ComicJensWeb, sans-serif; } */
+/*--------------------------------------------------- */
+ </style>
+</head>
+
+<body class="lavendero" id="id20170811o0413">
+
+<img style="position: absolute; top: 0; right: 0; border: 0;"
+   src="./img/20141118o1149.forkme_right_green_007200.png" alt="Fork me on GitHub"
+   data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png"
+   width="149" height="149"
+   usemap="#ForkMeOnGithubRibbon"
+/>
+<map name="ForkMeOnGithubRibbon">
+   <area shape="poly" coords="16,1,58,1,149,90,149,133"
+         href="https://github.com/normai/dataset4access"
+         alt="Fork me on GitHub" title="Fork me on GitHub" />
+</map>
+
+
+<div class="ChapterFaceNormal" id="id20170811o0421">
+
+<!-- p id="id20170811o0422">
+               <img src="./img/20100919o0241.johnny-automatic-golden-eagle.x0144y0180.png" width="130" height="162" align="right">
+</p -->
+
+<p class="toptitlecrumbs" id="id20170811o0423">
+               <a href="https://github.com/normai/DataSet4Access" class="extern">DataSet4Access on GitHub</a>
+</p>
+<h1 class="toptitle" id="id20170811o0424">
+               How to use a WinForms DataSet with hierarchical table relations against Access&nbsp;2007
+</h1>
+
+<p id="id20170811o0425">
+               This article shall describe the session to create a Visual Basic project
+               which connects to an Access database via a <span class="code">DataSet</span> object
+               and provides a form with two <span class="code">DataGridViews</span> to work with that database.
+</p>
+
+
+<p id="id20171126o02xx">
+               This article is not for the faint of heart.
+               It is not ready. Just all facts are thrown
+               unsorted into the bucket.
+               But all ingredients are mentioned,
+               and you can puzzle the picture.
+               I might continue working on it, if someone asks me.
+               Leastways, look into the working Visual Basic procject,
+               which comes with the article.
+</p>
+
+
+<p id="id20170811o0611">
+               The used components are:
+</p>
+
+<ul id="id20170811o0612">
+ <li id="id20170811o0613">
+               Operating system : Windows 10 Professional
+ </li>
+ <li id="id20170811o0614">
+               IDE : Visual Studio 2017 Community Edition
+ </li>
+ <li id="id20170811o0615">
+               Programming language : Visual Basic 2017
+ </li>
+ <li id="id20170811o0616">
+               Database product : Microsoft Office Access 2007
+       <br />
+               (the article should be valid for later versions as well)
+ </li>
+</ul>
+
+<h2 id="id20170811o0431">
+               <small>(Step 1)</small> &nbsp; Create Access database
+</h2>
+
+<p id="id20170811o0432">
+               Provide an Access database file and put it into
+               the Visual Studio project folder.
+</p>
+
+
+<p class="imageCenter">
+               <img src="./img/20170811o0642.access--view-relationships--cut.png" width="493" height="240" alt="Image 20170811°0642" />
+       <br />
+               The database in Access relationships view.
+<p>
+
+<p class="imageCenter">
+               <img src="./img/20170811o0643.access--edit-relationships.png" width="356" height="251" alt="Image 20170811°0643" />
+       <br />
+               The Access relationships edit dialog box.
+<p>
+
+
+
+<h2 id="id20170811o0631">
+               <small>(Step 2)</small> &nbsp; Create a Windows Form project
+</h2>
+
+<p id="id20170811o0632">
+               To work anything at all in Visual Studio, we need a project.
+               of some type. Here we create a Windows Form project.
+</p>
+
+<p class="imageCenter" id="id20171125o1922">
+               <a href="./img/20171125o1921.vs--new-project--chessclub1.png"><!-- width="994" height="716" -->
+                <img src="./img/20171125o1921.vs--new-project--chessclub1.png" width="331" height="238" alt="Image 20171125°1921 Newly created VS VB-WinForms project" />
+               </a>
+       <br />
+               The form of the newly created VS VB WinForms project.
+</p>
+
+
+<h2 id="id20170811o0433">
+               <small>(Step 3)</small> &nbsp; Create DataSet and connect to database
+</h2>
+
+<p id="id20170811o0434">
+               Create a DataSet after the receipt on the following MS-Docs article.
+</p>
+
+<p class="iconFloatLeft" id="id20170811o0342">
+               <img src="./img/20170811o0621.microsoftgray.v3.x0048y0048.png" class="iconFloatLeft" width="48" height="48" alt="Icon 20170811°0621 Link to MS-Docs" />
+               MS-Docs article
+               <a href="https://docs.microsoft.com/de-de/visualstudio/data-tools/connect-to-data-in-an-access-database-windows-forms" class="extern" id="id20170720o0752">
+                Connect to data in an Access database (Windows Forms)
+               </a>
+               <span class="timestamp">(ws&nbsp;20170720°0752)</span>
+               .
+               Note <a href="./img/20170720o075212.docs-ms-com---connect-to-data-in-access-database.png">this</a>
+               .
+</p>
+
+
+<p class="imageCenter" id="id20170811o1831" style="clear:both">
+               <a href="./img/20170811o0514.vs--choose-a-data-source-type.png"><!-- width="655" height="508" * 0.7 -->
+                <img src="./img/20170811o0514.vs--choose-a-data-source-type.png" width="458" height="355" alt="Image 20170811°0514" />
+               </a>
+       <br />
+               With "View -- DataSources -- Add New DataSource",
+               you get the DataSource Configuration Wizzard.
+</p>
+
+<p class="imageCenter" id="id20170811o1832">
+               <img src="./img/20170811o0517.vs--choose-your-data-connection--new.png" width="379" height="409" alt="Image 20170811°0517" />
+       <br />
+               After some trivial 'Next' button presses, you will hit the
+               'Add Connection' dialog, and here press the 'Change' button.
+               The field 'User name' you can empty, or otherwies appropriately handle.
+</p>
+
+<p class="imageCenter" id="id20170811o1833">
+               <img src="./img/20170811o0519.vs--choose-your-data-connection--select.png" width="653" height="506" alt="Image 20170811°0519" />
+       <br />
+               When choosing the connection, do <b>not</b> choose 'Microsoft Access Database File',
+               this would be for the old *.mdb files. For the newer *.accdb files,
+               you need the '.NET Framework Data Provider for OLE DB'
+               (in a german Visual Studio, that is somehow translated).
+</p>
+
+<p class="imageCenter" id="id20170811o1834">
+               <img src="./img/20170811o0524.vs--datasource-wizzard--add-connection--filename.png" width="437" height="621" alt="Image 20170811°0524" />
+       <br />
+               Fill in more details.
+               The wanted path field obviously offers no file browser dialog.
+               Insert the full path, it will be translated by VS
+               to the relative path using the macro
+               <span class="code">|DataDirectory|</span> (?).
+               With the '<b>Test Connection</b>' button you can verify your input.
+</p>
+
+
+<p class="imageCenter" id="id20170811o1835">
+               <img src="./img/20170811o0527.vs--datasource-wizzard--choose-connection.png" width="655" height="508" alt="Image 20170811°0527" />
+       <br />
+               The 'Choose Your Data Connection' tab is filled in now.
+               You can expand the Connection String box to see
+               the newly created connection string.
+               A chapter on it's own is, what exactly '|DataDirectory|' means.
+</p>
+
+
+<p class="imageCenter" id="id20171125o19xx">
+               <a href="./img/20171125o1931.vs--dataset-dialog--use-local-data-file.png"><!-- width="482" height="238" * 0.8 -->
+                <img src="./img/20171125o1931.vs--dataset-dialog--use-local-data-file.png" width="385" height="190" alt="Image 20171125°1931" />
+               </a>
+       <br />
+               On continuing, the question may appear,
+               how exactly to handle the database file
+               on the project build event.
+</p>
+
+
+<p class="imageCenter" id="id20171125o19xx">
+               <a href="./img/20171125o1932.vs--create-dataset--save-connection-string.png"><!-- width="655" height="508" * 0.6 -->
+                <img src="./img/20171125o1932.vs--create-dataset--save-connection-string.png" width="383" height="304" alt="Image 20171125°1931" />
+               </a>
+       <br />
+               Yes, save the connection string.
+</p>
+
+
+<p class="imageCenter" id="id20170811o1836">
+               <img src="./img/20170811o0534.vs--ds-wizzard--choose-db-objects--tables--selected.png" width="655" height="508" alt="Image 20170811°0534" />
+       <br />
+               The last tab of the DataSource Configuration Wizzard is
+               'Choose Your Database Objects'. Select the two tables.
+</p>
+
+<p class="imageCenter" id="id20170811o1837">
+               <a href="./img/20171125o1933.vs--create-dataset--finished.png"><!-- width="571" height="362" * 0.8 -->
+                <img src="./img/20171125o1933.vs--create-dataset--finished.png" width="456" height="289" alt="Image 20171125°1933" />
+               </a>
+       <br />
+               Now in the DataSources view, the 'chessclubDataSet'
+               is available for future use. Interestingly,
+               the Guardians table appears twice, the second time
+               as child of Members.
+               
+</p>
+
+
+
+
+
+<h2 id="id20170811o0435">
+               <small>(Step 4)</small> &nbsp; Place the two DataGridViews on the Windows Form
+</h2>
+
+<p id="id20170811o0436">
+               After the DataSet object exists in the project, it
+               can be used by some GUI control, namely by a DataGrid.
+</p>
+
+
+<p class="imageCenter" id="id20171125o1923">
+               <img src="./img/20170723o1505.dummy0200x0100.png" width="200" height="100" alt="Image 20170723°1505" />
+       <br />
+               .
+</p>
+
+
+<h2 id="id20170811o0437">
+               <small>(Step 5)</small> &nbsp; Add code to handle relations
+</h2>
+
+
+<p id="id20170811o0438">
+               The DataSet natively does not handle hierarchical table relations,
+               means master-detail relations.
+               Microsoft provides recipes to supplement the wizzard generated
+               code manually, so master-detail relations are handled.
+</p>
+
+
+<p id="id20171126o02xx">
+               . . .
+</p>
+
+<p id="id20171126o02xx">
+               The hierarchical update in general should be solved now.
+               That works for all databases -- but unfortunately
+               <b>not for MS Access</b>!
+</p>
+
+<h2 id="id20171126o02xx">
+               <small>(Step 6)</small> &nbsp; Start fixing the remaining
+               Access shortcome (Beth Massi Part 1)
+</h2>
+
+<p id="id20171126o02xx">
+               <tt>(Sorry, this section might repeat already above described facts.
+                Must be sorte out.)</tt>
+</p>
+
+<p id="id20171126o02xx">
+               When adding any record, be it master or be it child,
+               that exception is thrown, which we know well in the meanwhile.
+</p>
+
+
+<p id="id20171126o02xx">
+               The reason is this. When updating a newly
+               inserted master record, before the DataSet can write
+               that back to the database, it must know its <b>primary key</b>.
+               But that is generated automatically by the database,
+               not by the DataSet. Thus, the DataSet sends two
+               SQL statements at once, the first to ask for the key,
+               and the second to send the new record with that key
+               filled in.
+               But with Access, only the first SQL statement is generated,
+               an trouble is ahead.
+               Then attempting to save the child record throws the exception.
+</p>
+
+
+<p id="id20171125o2134">
+               This is the hardes part.
+               The solution comes from one class provided by Beth Massi.
+               In his blog
+               <a href="https://blogs.msdn.microsoft.com/bethmassi/2009/05/14/using-tableadapters-to-insert-related-data-into-an-ms-access-database/" class="extern">Using TableAdapters to Insert Related Data into an MS Access Database</a>
+               <span class="timestamp">20171125°2123</span>
+               he writes :
+</p>
+
+<p id="id20171125o2135">
+       <i>
+               When Visual Studio generates the insert commands on a SQL-Server
+               TableAdapter ... When in the DataSet designer, if you look at the
+               insert statement in the properties window for the SQLTableAdapter
+               you will see two statements separated by a semi-colon:
+    <br />
+               Unfortunately Access doesn’t support batch statements. If you look at what
+               is generated for Access you will only see one statement (also the OLEDB
+               provider does not support named parameters hence the question mark placeholders):
+       </i>
+</p>
+
+
+<p id="id20171125o2141">
+               The steps are
+</p>
+
+
+<h3 id="id20171125o2142">
+               AutoNumber
+</h3>
+
+<p id="id20171126o02xx">
+               In Access be sure to set <b>AutoNumber</b>.
+</p>
+
+<h3 id="id20171125o2143">
+               Garantee the proper DataSet configuration
+</h3>
+
+<p id="id20171126o02xx">
+               In VS be sure to set Relation '<b>Both Relation and Foreign Key Constrains'</b>.
+</p>
+
+<h3 id="id20171125o2144">
+               Have a look on the shortcome
+</h3>
+
+<p id="id20171126o02xx">
+               In VS, with other databases, you can see that the code generated
+               for inserting a master record consists of <b>two SQL</b> statements.
+               (I have no such example at hand here.)
+</p>
+
+<h3 id="id20171125o2145">
+               What can we do about this?
+</h3>
+
+<p id="id20171126o02xx">
+               Access does <b>not</b> support two statements in one single action.
+               This is the insufficiency, which must be worked around.
+               (See screenshot
+               <a href="./img/20171125o215112.vs--masterr-tableadapter--missing-second-statement.png">20171125°2151</a>
+               )
+</p>
+
+<h3 id="id20171125o2146">
+               Make sure the DataSet is configured properly
+</h3>
+
+<p id="id20171126o02xx">
+               Before '<i>Head over to the code behind</i>',
+               in VS configure the table relation
+               (See screenshots
+               <a href="./img/20171125o2152.vs--table-relations--edit.png">20171125°2152</a>
+               and
+               <a href="./img/20171125o215312.vs--table-relations--edited.png">20171125°2153</a>
+               )
+</p>
+
+<h3 id="id20171125o2147">
+               Adjust the tables loading order
+</h3>
+
+<p id="id20171126o02xx">
+               Make sure that the parent is filled first before the child.
+               In the <b>BindingNavigatorSaveItem</b> click event, code is to be
+               inserted, exactly as we already know it from in the projects before.
+               (See supplemented line 20171125°2201)
+</p>
+
+<h3 id="id20171125o2148">
+               Adjust the tables saving order
+</h3>
+
+<p id="id20171126o02xx">
+               In the forms load event, make sure the master table
+               is loaded <b>before</b> the child table.
+               (See modification 20171125°2202)
+</p>
+
+<h3 id="id20171125o2206">
+               Make the master saved before navigating to the child
+</h3>
+
+<p id="id20171126o02xx">
+               In the childs DataGridView <b>enter event</b>
+               (<span class="code">GuardiansDataGridView_Enter</span>)
+               make the master tabel end edit (see line 20171125°2204).
+               This event handler was not used by the automatically
+               generated code, and thus has to be newly created.
+</p>
+
+<p id="id20171126o02xx">
+               (Note. This is already done in above Microsoft walkthrough,
+               just in another event handler.)
+</p>
+
+<h3 id="id20171125o2207">
+               Validate the values to be saved
+</h3>
+
+<p id="id20171126o02xx">
+               Just remember:
+               <small><i>Note that anytime you call EndEdit and flush the data
+               to the DataTable, the row must not fail any constraints either
+               (i.e. if NULLs aren’t being allowed then you have to set those
+               values). One way to handle this is to add code to set default
+               values in the TableNewRow handler on the DataTable.</i></small>
+</p>
+
+<h2 id="id20171125o2221">
+               <small>(Step 7)</small> &nbsp; Finish fixing the remaining
+               Access shortcome (Beth Massi Part 2)
+</h2>
+
+
+<p id="id20171126o02xx">
+               Above were preparations, below comes the section which
+               Beth Massi introduces with '<i>Now for the good stuff</i>'.
+</p>
+
+<h3 id="id20171125o2222">
+               Create partial classes to expand the TableAdapters
+</h3>
+
+<p id="id20171126o02xx">
+               <small>
+               <i>Right-click on the TableAdapter class in the DataSet
+               Designer and select View Code and the partial class file
+               that you can edit will be created for you.</i>
+               (See screenshots
+               <a href="./img/20171125o2211.vs--tableadapter-class--rightclick.png">20171125°2211</a>
+               and
+               <a href="./img/20171125o2212.vs--tableadapter-class--rightclicked.png">20171125°2212</a>,
+               it looks not exactly as in Beth Massis blog,
+               perhaps because I rightclicked on the master table TableAdapter
+               .)
+               </small>
+</p>
+
+<p id="id20171126o02xx">
+               For control purposes,
+               I do it again, while <b>rightclicking on the childs TableAdapter</b>
+               (See screenshots
+               <a href="./img/20171125o2214.vs--child-tableadapter--rightclicking.png">20171125°2214</a>
+               and
+               <a href="./img/20171125o2215.vs--child-tableadapter--rightclicked.png">20171125°2215</a>,
+               yes, this resembles Beth Massis code.
+               No new file was created, just <b>chessclub4DataSet.vb</b> supplemented
+               .)
+</p>
+
+<p id="id20171126o02xx">
+               Beth Masse explains:
+               <i>
+               In these classes we can handle the RowUpdated event on the
+               private variable _adapter which gives us access to the ADO.NET
+               DataAdapter that is executing the updates to our rows. The way
+               we retrieve the primary key is by executing the statement
+               <span class="code">SELECT @@IDENTITY</span>
+               which tells Access to send back the last primary key it
+               used on the connection. Because you have to add this handler
+               to all your TableAdapters that are working against MS Access,
+               to make things more manageable you can create a class with
+               a Shared (static) method to handle setting the key and then
+               call that from the handlers.
+               </i>
+</p>
+
+
+<p id="id20171126o02xx" style="display:none;">
+               Creating the class works fine.
+               But building has curious error,
+               see
+               <a href="./img/20171125o2232.vs-build-error--class-not-defined.png">20171125°2232</a>
+               . I restore the project to the last working version (r194)
+               and build it up to here again.
+</p>
+
+
+
+<h3 id="id20171126o02xx">
+               Supplement class <b><span class="code">AccessIDHelper</span></b>
+</h3>
+
+<p id="id20171126o02xx">
+               This is the crucial code, I and probably you
+               could never write on her own right.
+               Small as it is, it can be considered an
+               open source third party product.
+</p>
+
+<p id="id20171126o02xx">
+               Here it follows, with the header a little bit revamped by
+               myself, the code itself completely unchanged.
+               Oops, and the long lines not breaked.
+</p>
+
+<pre class="codesmall" id="id20171126o02xx">
+Imports System.Data.OleDb
+
+Public Class AccessIDHelper
+
+   ''' &lt;summary&gt;
+   ''' This class is to retrieve the primary key autonumber values from Access.
+   ''' &lt;/summary&gt;
+   ''' &lt;remarks&gt;
+   ''' Class written by after Beth Massi, see
+   ''' - https://blogs.msdn.microsoft.com/bethmassi/2009/05/14/using-tableadapters-to-insert-related-data-into-an-ms-access-database/
+   ''' - or https://www.facebook.com/note.php?note_id=78517206533
+   ''' [class 20171125°2231]
+   ''' &lt;/remarks&gt;
+
+   Public Shared Sub SetPrimaryKey(ByVal trans As OleDbTransaction, ByVal e As OleDbRowUpdatedEventArgs)
+
+      If e.Status = UpdateStatus.Continue AndAlso e.StatementType = StatementType.Insert Then
+
+         ' If this is an INSERT operation ...
+         Dim pk = e.Row.Table.PrimaryKey
+
+         ' and a primary key column exists ...
+         If pk IsNot Nothing AndAlso pk.Count = 1 Then
+
+            Dim cmdGetIdentity As New OleDbCommand(“SELECT @@IDENTITY”, trans.Connection, trans)
+
+            ' Execute the post-update query to fetch new @@Identity
+            e.Row(pk(0)) = CInt(cmdGetIdentity.ExecuteScalar)
+            e.Row.AcceptChanges()
+
+         End If
+
+      End If
+
+   End Sub
+
+End Class
+</pre>
+
+
+
+<p id="id20171126o02xx" style="display:none;">
+               Create the file with the class ''
+               put it in your project folder
+               and have it added to the project inside Visual Studio.
+</p>
+
+
+
+<h3 id="id20171125o2226">
+               Fix the code created by the wizzard
+</h3>
+
+<p id="id20171126o02xx">
+               It looks like the wizzard creates the classes wrongly boxed,
+               and with a wrong namespace. The private variable <b>_adapter</b>
+               is not visible. We must fix the namespace.
+               <small>(The solution was found in Stackoverflow thread
+               <a href="https://stackoverflow.com/questions/4169025/how-can-i-expose-private-fields-using-a-partial-class-in-vb-net" class="extern">How Can I Expose Private Fields using a Partial Class in VB.NET?</a>
+               <span class="timestamp">20171125°2311</span>
+               .)</small>
+      <br />
+               <small>
+               Other interesting pages found while researching this:
+               (1) Beth Massi's article on facebook, just nicer formatted than on MSDN
+               <b><a href="https://www.facebook.com/note.php?note_id=78517206533" class="extern">Using TableAdapters to Insert Related Data into an MS Access Database</a>
+               </b><span class="timestamp">20171125°2311</span>
+               .
+               (2) Some tutoria on VB-Tips, not sure whether helpful:
+               <a href="http://www.vb-tips.com/ExtendTableAdapter.aspx" class="extern">TableAdapter: Extend the TableAdapter</a>
+               <span class="timestamp">20171125°2253</span>
+               .
+               (3) The Tutorial, where the original poster of Stackoverflow 20171125°2311 thread come from
+               <a href="http://blah.winsmarts.com/2006/06/18/the-definitive-tableadapters--transactions-blog-post.aspx" class="extern">The definitive TableAdapters + Transactions blog post</a>
+               <span class="timestamp">20171125°2253</span>
+               .
+               </small>
+</p>
+
+<h3 id="id20171125o2227">
+               Heureka!
+</h3>
+
+<p id="id20171126o02xx">
+               After fixing the namespace and class boxing issues of the
+               module generated by the DataSet designer does work.
+               <span class="timestamp">(heureka 20171125°2351)</span>
+</p>
+
+
+
+<p id="id20171126o02xx">
+               .
+</p>
+
+
+
+<hr id="id20171125o1934" />
+
+
+<h2 id="id20170811o0651">
+               Some Unsorted Links
+</h2>
+
+<p id="id20170811o1712" style="clear:both">
+               The following articles also may be helpful.
+</p>
+
+
+<p class="iconFloatLeft" id="id20170807o0437">
+               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" class="iconFloatLeft" width="48" height="48" alt="Icon 20170814°0611 Link to MSDN" />
+               MSDN article
+               <a href="https://msdn.microsoft.com/en-us/library/bb384432.aspx" class="extern">
+                Walkthrough: Saving Data from Related Data Tables (Hierarchical Update)
+               </a>
+               <span class="timestamp">(ws 20170723o1705)</span>
+               .
+</p>
+
+
+<p class="iconFloatLeft" id="id20170807o0435">
+               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" class="iconFloatLeft" width="48" height="48" alt="Icon 20170814°0611 Link to MSDN" />
+               MSDN article
+               <a href="https://msdn.microsoft.com/en-us/library/bb384468.aspx" class="extern">
+                Hierarchical update
+               </a>
+               <span class="timestamp">(20170723o1651)</span>
+               .
+      <br />
+               Read paragraph 'Modify the generated save code to perform the hierarchical update'.
+               It says e.g.:
+      <tt>
+               The Dataset Designer <b>only</b> adds the BindingSource.EndEdit code
+               for the <b>first table</b> that's dropped onto the form. Therefore,
+               you have to add a line of code to call the BindingSource.EndEdit
+               method for each related table on the form. For this walkthrough,
+               this means you have to add a call to the OrdersBindingSource.EndEdit
+               method.
+      </tt>
+</p>
+
+
+<p class="iconFloatLeft" id="id20170807o0433">
+               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" class="iconFloatLeft" width="48" height="48" alt="Icon 20170814°0611 Link to MSDN" />
+               MSDN article
+               <a href="https://msdn.microsoft.com/en-us/library/bb384426.aspx" class="extern">
+                TableAdapterManager Overview
+               </a>
+               <span class="timestamp">(ws 20170723°1621)</span>
+               .
+</p>
+
+<p class="iconFloatLeft" id="id20170807o0434">
+               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" class="iconFloatLeft" width="48" height="48" alt="Icon 20170814°0611 Link to MSDN" />
+               MSDN article
+               <a href="https://msdn.microsoft.com/en-us/library/bb384471.aspx" class="extern">
+                How to: Enable and Disable Hierarchical Update
+               </a>
+               <span class="timestamp">(ws 20170723°1622)</span>
+               .
+</p>
+
+<p id="id20171125o1936" style="clear:both;">
+               Also interesting may be a CodeProject article by Gani Weecom
+               <a href="https://www.codeproject.com/Tips/835501/Master-Detail-Datagridview">Master Detail Datagridview</a>
+               <span class="timestamp">20171120°1321</span>.
+               Just this does not solve the MS Access hierarchical-update-problem.
+</p>
+
+
+<p class="iconFloatLeft" id="id20170811o0345">
+               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" class="iconFloatLeft" alt="Icon 20170814°0611 Link to MSDN" width="48" height="48"> Here is an MSDN article with a nice overview diagram of the general
+               concept of accessing data via a DataSet: <a href="https://msdn.microsoft.com/en-us/library/aa261277(v=vs.60).aspx" class="extern">
+                Accessing Data Using Visual Basic
+               </a> <span class="timestamp">(ws 20170720o0755)</span> . Though it is written for Visual Basic 6.0,
+               I think, it is still valid for Visual Basic 2017.'
+</p>
+
+<p class="iconFloatLeft" id="id20170807o04xx">
+               <img src="./img/20170811o0621.microsoftgray.v3.x0048y0048.png" class="iconFloatLeft" width="48" height="48" alt="Icon 20170811°0621 Link to MS-Docs" />
+               MS-Docs article
+               <a href="https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/load-save-and-cancel-bindingnavigator" class="extern">
+                How to: Add Load, Save, and Cancel Buttons to the Windows Forms BindingNavigator Control
+               </a>
+               <span class="timestamp">(ws 20170811°1751)</span>
+               .
+</p>
+
+
+
+<p class="goodbye" id="id20170811o0414">
+               eof
+</p>
+
+</div>
+
+
+<p class="imprint" id="id20170811o0412">
+               .
+</p>
+<p class="footer" id="id20170811o0411">
+               <span class="footerFile">https://github.com/normai/dataset4access/pages/<a href="https://github.com/normai/dataset4access/pages/index.html" class="footerFileHref">index.html</a></span>
+               <span class="footerCopy">© 2017 Norbert C. Maier</span>
+               <span class="footerLicense">&nbsp; License for article: <a href="http://creativecommons.org/licenses/by-nc-sa/3.0" class="extern">CC BY-NC-SA 3.0</a></span><span style="display:none;">(20110922°2122)</span>
+               <span class="footerTimst">(page 20170811°0411)</span>
+</p>
+</body>
+</html>

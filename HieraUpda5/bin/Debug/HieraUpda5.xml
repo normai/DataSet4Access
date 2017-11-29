@@ -1,0 +1,121 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+HieraUpda5
+</name>
+</assembly>
+<members>
+<member name="T:HieraUpda5.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+<member name="P:HieraUpda5.My.Resources.Resources.ResourceManager">
+<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member>
+<member name="P:HieraUpda5.My.Resources.Resources.Culture">
+<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member>
+<member name="M:HieraUpda5.AccessIDHelper.SetPrimaryKey(System.Data.OleDb.OleDbTransaction,System.Data.OleDb.OleDbRowUpdatedEventArgs)">
+ <summary>
+ This class is to retrieve the primary key autonumber values from Access.
+ </summary>
+ <remarks>
+ Class [20171125°2231] written by after Beth Massi, see
+ - https://blogs.msdn.microsoft.com/bethmassi/2009/05/14/using-tableadapters-to-insert-related-data-into-an-ms-access-database/
+ - or https://www.facebook.com/note.php?note_id=78517206533
+ </remarks>
+</member>
+<member name="T:HieraUpda5.chessclub5DataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:HieraUpda5.chessclub5DataSet.GuardiansDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:HieraUpda5.chessclub5DataSet.MembersDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:HieraUpda5.chessclub5DataSet.GuardiansRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:HieraUpda5.chessclub5DataSet.MembersRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:HieraUpda5.chessclub5DataSet.GuardiansRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:HieraUpda5.chessclub5DataSet.MembersRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:HieraUpda5.chessclub5DataSetTableAdapters.GuardiansTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:HieraUpda5.chessclub5DataSetTableAdapters.MembersTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:HieraUpda5.chessclub5DataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:HieraUpda5.chessclub5DataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(HieraUpda5.chessclub5DataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:HieraUpda5.chessclub5DataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(HieraUpda5.chessclub5DataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:HieraUpda5.chessclub5DataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(HieraUpda5.chessclub5DataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:HieraUpda5.chessclub5DataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:HieraUpda5.chessclub5DataSetTableAdapters.TableAdapterManager.UpdateAll(HieraUpda5.chessclub5DataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:HieraUpda5.chessclub5DataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:HieraUpda5.chessclub5DataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+</members>
+</doc>
