@@ -49,7 +49,7 @@ For the solution please see this page: [HTML file](./pages/index.html).
 
 *Oops, sorrily, GitHub will not show this page as I have carelessly intended.
 To view the page meaningful in your browser, you need to download the
-project, and view the page locally in your. I plan to fix this (somewhen).*
+project, and view the page locally. I plan to fix this occasionally.*
 
 ## The Teachers
 
