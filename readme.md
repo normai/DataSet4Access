@@ -1,5 +1,9 @@
-﻿
-# DataSet4Access *v0.1*
+﻿<img src="./pages/img/20211205o0923.livesaver.v2.x0128y0128.png" align="right" width="128" height="128" alt="Icon 20211205°0923">
+
+# DataSet4Access &nbsp; <sup><sub><sup>*v0.1.2*</sup></sub></sup>
+
+Written in VBA, compiled with VS2019 for .NET 4.8,
+ prerequisite is the 'Microsoft.ACE.OLEDB.12.0' data provider.
 
 ## Introduction
 
@@ -45,7 +49,9 @@ the application crashes. In the debugger, it looks like this :
 The reason for the crashing is hard to find,
 not to mention the solution.
 
-For the solution please see this page: [HTML file](./pages/index.html).
+For the solution please see
+ [www.trekta.biz/&#8203;svn/&#8203;dataset4accessdev/&#8203;trunk/&#8203;DataSet4Access/&#8203;pages/&#8203;index.html](https://www.trekta.biz/svn/dataset4accessdev/trunk/DataSet4Access/pages/index.html)
+ (which is [pages/index.html](./pages/index.html) here).
 
 *Oops, sorrily, GitHub will not show this page as I have carelessly intended.
 To view the page meaningful in your browser, you need to download the
@@ -68,6 +74,17 @@ This project is a **dirty quick** shot, not ready yet, but possibly already help
 
 License: [The MIT License](https://mit-license.org/).
 
+## Credits
+
+The top right logo comes from
+ [openclipart.org/detail/39139/life-saver](https://openclipart.org/detail/39139/life-saver)
+
+&nbsp;
+
 *Norbert*
 
-*2017-Nov-29*
+*2021-Dez-05*
+
+---
+
+<sup><sub><sup>*project 20171126°0131 file 20171126°0132*</sup></sub></sup>

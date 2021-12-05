@@ -20,8 +20,19 @@
       '''''TODO: This line of code loads data into the 'Chessclub4DataSet.Members' table. You can move, or remove it, as needed.
       ''''Me.MembersTableAdapter.Fill(Me.Chessclub4DataSet.Members)
       ''''------------------------
-      Me.MembersTableAdapter.Fill(Me.Chessclub5DataSet.Members)
-      Me.GuardiansTableAdapter.Fill(Me.Chessclub5DataSet.Guardians)
+
+      ' See issue 20211205°1144 System.InvalidOperationException: 'The 'Microsoft.ACE.OLEDB.12.0' provider is not registered on the local machine.'
+      Try
+         Me.MembersTableAdapter.Fill(Me.Chessclub5DataSet.Members)
+         Me.GuardiansTableAdapter.Fill(Me.Chessclub5DataSet.Guardians)
+      Catch ex As Exception
+         MessageBox.Show(ex.Message + Environment.NewLine + Environment.NewLine _
+                          + "Please fixe this before running DataSet4Access again." _
+                           , "Sorry, your system is missing something" _
+                            , MessageBoxButtons.OK _
+                             , MessageBoxIcon.Stop
+                              )
+      End Try
 
    End Sub
 

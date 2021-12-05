@@ -1,0 +1,57 @@
+﻿
+   issue 20211205°1144 'OLEDB.12.0 provider not registered'
+   It recompiles fine with VS2019, zero errors and zero warnings.
+   Only when starting the executable, it throws :
+    • System.InvalidOperationException: The 'Microsoft.ACE.OLEDB.12.0' provider is not registered on the local machine.
+   See screenshots 20211205°1142, 20211205°1143
+   finding : It is not a problem of the project but of the machine, since
+      the executable of v0.1.1 throws the same exception.
+   note : The program should check for it´s dependencies and give advice what to do.
+
+
+   todo 20180615`0216 'link to recipe'
+   issue : Link to https://github.com/normai/DataSet4Access/blob/master/pages/index.html
+      does not work as expected
+   solution : use https://cdn.rawgit.com/normai/DataSet4Access/8cdc658e/pages/index.html
+   ref : 20180615o0215.rawgit---dataset4access-index-html.mht
+   status : open
+   note :
+
+
+   todo 20171130`0221 'wrong image'
+   issue : The readme.md shows the wrong exception.
+   todo : Exchange the image.
+   status : open
+   note :
+
+
+   project 20171126°0131 dataset4access
+   objtype     : project.vb
+   url         : file:///G:/work/z.localhost.svn/vbdemos/trunk/dataset4access/
+   title       : DataSet4Access
+   summary     :
+   chain       : https://github.com/normai/DataSet4Access
+                  occasionally synchronize this
+   note        :
+
+   —————————————————————————————————————————————————————
+   Project log :
+
+   log 20211205°1212 v0.1.2
+   • Implement dialog box to make issue 20211205°1144 'OLEDB.12.0 provider
+      not registered' a little bit more friendly than the plain exception
+   • Add project logo
+
+   log 20211205°1133
+   • Rename default branch from 'master' to 'main'
+
+   version 20171130°0114 v0.1.1
+   This is the version on the GitHub front from 2017-Nov-30 until
+   2021-Dec-05. The tag 'v0.1.1' was created finally on 2021-Dec-05,
+   after repository 20211205°1041 dataset4accessdev existed.
+
+   version 20171130°0208 v0.1.0
+   Commit to Github
+
+   ———————————————————————
+   [file 20171126°0132] ܀Ω
