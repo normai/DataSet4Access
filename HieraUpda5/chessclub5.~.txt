@@ -1,0 +1,7 @@
+﻿
+   About file chessclub5.accdb [file 20171126°1511]
+
+   This is the database created with Access 2007, which
+   we want process further from a VB or C# application.
+
+   — eof —

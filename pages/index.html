@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
- <meta charset="UTF-8"><!-- utf8-without-bom -->
+ <meta charset="UTF-8" /><!-- UTF-8-without-BOM -->
  <title>DataSet4Access</title>
+
  <style type="text/css">
   body {
          background-color:#fafafa;
@@ -11,7 +12,7 @@
   }
   body.lavendero { background-color:Lavender; }
   div.ChapterFaceNormal { margin:0 auto; max-width:780px; width:84%; background-color:#fcfcfc; padding:0.9em; margin-top:0.9em; margin-bottom:1.1em; }
-  p.toptitlecrumbs { color:#0000f0; font-size:1.20em; margin-bottom:0.2em; margin-top:0.2em; text-align:center; }
+  p.topTitleCrumbs { color:#0000f0; font-size:1.20em; margin-bottom:0.2em; margin-top:0.2em; text-align:center; }
   h1 { text-align:center; color:#0000f0; font-size:1.90em; }
   h2 { text-align:center; color:#3000c0; font-size:1.60em; }
   h3 { text-align:left; color:#600090; font-size:1.30em; }
@@ -23,8 +24,16 @@
   }
   a.extern:hover { background-color:LemonChiffon;}
   p.imageCenter { text-align:center; margin-left:auto; margin-right:auto; color:Green; }
-  p.iconFloatLeft { clear:left; margin-left:48px; text-align:left; }
-  img.iconFloatLeft { float:left; margin:0 20px 20px 0; margin-left:-48px; }
+
+   /**
+    * ruleset 20140726°1131 for link lists being bulleted with icons
+    * summary :
+    * prototype : page 20170924°0911 http://www.trekta.biz/svn/demosps/trunk/pages/links.html
+    */
+   p.iconFloat22Left { clear:both; margin-left:48px; text-align:left; padding:0.1em; }   /* rule 20140726°1132 */
+   p.iconFloat22Left img { float:left; margin:0 20px 20px 0; margin-left:-56px; }         /* rule 20140726°1133 */
+   p.iconFloat22Left canvas { float:left; margin:0 20px 20px 0; margin-left:-56px; }      /* rule 20140726°1134 */
+
   .timestamp { color:Turquoise; font-size:x-small; font-family: ComicJensWeb, sans-serif; display:none; }
   .code { font-family:monospace,monospace; font-size:1.00em; padding:0.09em; background:#fff0f0; }
   .codesmall  { font-family:monospace,monospace; font-size:0.88em; padding:0.09em; background:#fff0f0; }
@@ -94,17 +103,17 @@
          alt="Fork me on GitHub" title="Fork me on GitHub" />
 </map>
 
-
 <div class="ChapterFaceNormal" id="id20170811o0421">
 
 <!-- p id="id20170811o0422">
                <img src="./img/20100919o0241.johnny-automatic-golden-eagle.x0144y0180.png" width="130" height="162" align="right">
 </p -->
 
-<p class="toptitlecrumbs" id="id20170811o0423">
+<p class="topTitleCrumbs" id="id20170811o0423">
                <a href="https://github.com/normai/DataSet4Access" class="extern">DataSet4Access on GitHub</a>
 </p>
-<h1 class="toptitle" id="id20170811o0424">
+
+<h1 class="topTitleCaption" id="id20170811o0424">
                How to use a WinForms DataSet with hierarchical table relations against Access&nbsp;2007
 </h1>
 
@@ -113,7 +122,6 @@
                which connects to an Access database via a <span class="code">DataSet</span> object
                and provides a form with two <span class="code">DataGridViews</span> to work with that database.
 </p>
-
 
 <p id="id20171126o02xx">
                This article is not for the faint of heart.
@@ -125,7 +133,6 @@
                Leastways, look into the working Visual Basic procject,
                which comes with the article.
 </p>
-
 
 <p id="id20170811o0611">
                The used components are:
@@ -157,7 +164,6 @@
                the Visual Studio project folder.
 </p>
 
-
 <p class="imageCenter">
                <img src="./img/20170811o0642.access--view-relationships--cut.png" width="493" height="240" alt="Image 20170811°0642" />
        <br />
@@ -169,8 +175,6 @@
        <br />
                The Access relationships edit dialog box.
 <p>
-
-
 
 <h2 id="id20170811o0631">
                <small>(Step 2)</small> &nbsp; Create a Windows Form project
@@ -189,7 +193,6 @@
                The form of the newly created VS VB WinForms project.
 </p>
 
-
 <h2 id="id20170811o0433">
                <small>(Step 3)</small> &nbsp; Create DataSet and connect to database
 </h2>
@@ -198,8 +201,8 @@
                Create a DataSet after the receipt on the following MS-Docs article.
 </p>
 
-<p class="iconFloatLeft" id="id20170811o0342">
-               <img src="./img/20170811o0621.microsoftgray.v3.x0048y0048.png" class="iconFloatLeft" width="48" height="48" alt="Icon 20170811°0621 Link to MS-Docs" />
+<p class="iconFloat22Left" id="id20170811o0342">
+               <img src="./img/20170811o0621.microsoftgray.v3.x0048y0048.png" width="48" height="48" alt="Icon 20170811°0621 Link to MS-Docs" />
                MS-Docs article
                <a href="https://docs.microsoft.com/de-de/visualstudio/data-tools/connect-to-data-in-an-access-database-windows-forms" class="extern" id="id20170720o0752">
                 Connect to data in an Access database (Windows Forms)
@@ -209,7 +212,6 @@
                Note <a href="./img/20170720o075212.docs-ms-com---connect-to-data-in-access-database.png">this</a>
                .
 </p>
-
 
 <p class="imageCenter" id="id20170811o1831" style="clear:both">
                <a href="./img/20170811o0514.vs--choose-a-data-source-type.png"><!-- width="655" height="508" * 0.7 -->
@@ -248,7 +250,6 @@
                With the '<b>Test Connection</b>' button you can verify your input.
 </p>
 
-
 <p class="imageCenter" id="id20170811o1835">
                <img src="./img/20170811o0527.vs--datasource-wizzard--choose-connection.png" width="655" height="508" alt="Image 20170811°0527" />
        <br />
@@ -257,7 +258,6 @@
                the newly created connection string.
                A chapter on it's own is, what exactly '|DataDirectory|' means.
 </p>
-
 
 <p class="imageCenter" id="id20171125o19xx">
                <a href="./img/20171125o1931.vs--dataset-dialog--use-local-data-file.png"><!-- width="482" height="238" * 0.8 -->
@@ -269,7 +269,6 @@
                on the project build event.
 </p>
 
-
 <p class="imageCenter" id="id20171125o19xx">
                <a href="./img/20171125o1932.vs--create-dataset--save-connection-string.png"><!-- width="655" height="508" * 0.6 -->
                 <img src="./img/20171125o1932.vs--create-dataset--save-connection-string.png" width="383" height="304" alt="Image 20171125°1931" />
@@ -277,7 +276,6 @@
        <br />
                Yes, save the connection string.
 </p>
-
 
 <p class="imageCenter" id="id20170811o1836">
                <img src="./img/20170811o0534.vs--ds-wizzard--choose-db-objects--tables--selected.png" width="655" height="508" alt="Image 20170811°0534" />
@@ -295,12 +293,7 @@
                is available for future use. Interestingly,
                the Guardians table appears twice, the second time
                as child of Members.
-               
 </p>
-
-
-
-
 
 <h2 id="id20170811o0435">
                <small>(Step 4)</small> &nbsp; Place the two DataGridViews on the Windows Form
@@ -311,18 +304,15 @@
                can be used by some GUI control, namely by a DataGrid.
 </p>
 
-
 <p class="imageCenter" id="id20171125o1923">
                <img src="./img/20170723o1505.dummy0200x0100.png" width="200" height="100" alt="Image 20170723°1505" />
        <br />
                .
 </p>
 
-
 <h2 id="id20170811o0437">
                <small>(Step 5)</small> &nbsp; Add code to handle relations
 </h2>
-
 
 <p id="id20170811o0438">
                The DataSet natively does not handle hierarchical table relations,
@@ -330,7 +320,6 @@
                Microsoft provides recipes to supplement the wizzard generated
                code manually, so master-detail relations are handled.
 </p>
-
 
 <p id="id20171126o02xx">
                . . .
@@ -357,7 +346,6 @@
                that exception is thrown, which we know well in the meanwhile.
 </p>
 
-
 <p id="id20171126o02xx">
                The reason is this. When updating a newly
                inserted master record, before the DataSet can write
@@ -371,7 +359,6 @@
                an trouble is ahead.
                Then attempting to save the child record throws the exception.
 </p>
-
 
 <p id="id20171125o2134">
                This is the hardes part.
@@ -395,11 +382,9 @@
        </i>
 </p>
 
-
 <p id="id20171125o2141">
                The steps are
 </p>
-
 
 <h3 id="id20171125o2142">
                AutoNumber
@@ -509,7 +494,6 @@
                Access shortcome (Beth Massi Part 2)
 </h2>
 
-
 <p id="id20171126o02xx">
                Above were preparations, below comes the section which
                Beth Massi introduces with '<i>Now for the good stuff</i>'.
@@ -563,7 +547,6 @@
                </i>
 </p>
 
-
 <p id="id20171126o02xx" style="display:none;">
                Creating the class works fine.
                But building has curious error,
@@ -572,8 +555,6 @@
                . I restore the project to the last working version (r194)
                and build it up to here again.
 </p>
-
-
 
 <h3 id="id20171126o02xx">
                Supplement class <b><span class="code">AccessIDHelper</span></b>
@@ -632,15 +613,11 @@ Public Class AccessIDHelper
 End Class
 </pre>
 
-
-
 <p id="id20171126o02xx" style="display:none;">
                Create the file with the class ''
                put it in your project folder
                and have it added to the project inside Visual Studio.
 </p>
-
-
 
 <h3 id="id20171125o2226">
                Fix the code created by the wizzard
@@ -682,16 +659,11 @@ End Class
                <span class="timestamp">(heureka 20171125°2351)</span>
 </p>
 
-
-
 <p id="id20171126o02xx">
                .
 </p>
 
-
-
 <hr id="id20171125o1934" />
-
 
 <h2 id="id20170811o0651">
                Some Unsorted Links
@@ -701,9 +673,8 @@ End Class
                The following articles also may be helpful.
 </p>
 
-
-<p class="iconFloatLeft" id="id20170807o0437">
-               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" class="iconFloatLeft" width="48" height="48" alt="Icon 20170814°0611 Link to MSDN" />
+<p class="iconFloat22Left" id="id20170807o0437">
+               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" width="48" height="48" alt="Icon 20170814°0611 Link to MSDN" />
                MSDN article
                <a href="https://msdn.microsoft.com/en-us/library/bb384432.aspx" class="extern">
                 Walkthrough: Saving Data from Related Data Tables (Hierarchical Update)
@@ -712,9 +683,8 @@ End Class
                .
 </p>
 
-
-<p class="iconFloatLeft" id="id20170807o0435">
-               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" class="iconFloatLeft" width="48" height="48" alt="Icon 20170814°0611 Link to MSDN" />
+<p class="iconFloat22Left" id="id20170807o0435">
+               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" width="48" height="48" alt="Icon 20170814°0611 Link to MSDN" />
                MSDN article
                <a href="https://msdn.microsoft.com/en-us/library/bb384468.aspx" class="extern">
                 Hierarchical update
@@ -734,9 +704,8 @@ End Class
       </tt>
 </p>
 
-
-<p class="iconFloatLeft" id="id20170807o0433">
-               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" class="iconFloatLeft" width="48" height="48" alt="Icon 20170814°0611 Link to MSDN" />
+<p class="iconFloat22Left" id="id20170807o0433">
+               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" width="48" height="48" alt="Icon 20170814°0611 Link to MSDN" />
                MSDN article
                <a href="https://msdn.microsoft.com/en-us/library/bb384426.aspx" class="extern">
                 TableAdapterManager Overview
@@ -745,8 +714,8 @@ End Class
                .
 </p>
 
-<p class="iconFloatLeft" id="id20170807o0434">
-               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" class="iconFloatLeft" width="48" height="48" alt="Icon 20170814°0611 Link to MSDN" />
+<p class="iconFloat22Left" id="id20170807o0434">
+               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" width="48" height="48" alt="Icon 20170814°0611 Link to MSDN" />
                MSDN article
                <a href="https://msdn.microsoft.com/en-us/library/bb384471.aspx" class="extern">
                 How to: Enable and Disable Hierarchical Update
@@ -762,17 +731,16 @@ End Class
                Just this does not solve the MS Access hierarchical-update-problem.
 </p>
 
-
-<p class="iconFloatLeft" id="id20170811o0345">
-               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" class="iconFloatLeft" alt="Icon 20170814°0611 Link to MSDN" width="48" height="48"> Here is an MSDN article with a nice overview diagram of the general
+<p class="iconFloat22Left" id="id20170811o0345">
+               <img src="./img/20170814o0611.msdn.v2.x0048y0048.png" alt="Icon 20170814°0611 Link to MSDN" width="48" height="48"> Here is an MSDN article with a nice overview diagram of the general
                concept of accessing data via a DataSet: <a href="https://msdn.microsoft.com/en-us/library/aa261277(v=vs.60).aspx" class="extern">
                 Accessing Data Using Visual Basic
                </a> <span class="timestamp">(ws 20170720o0755)</span> . Though it is written for Visual Basic 6.0,
                I think, it is still valid for Visual Basic 2017.'
 </p>
 
-<p class="iconFloatLeft" id="id20170807o04xx">
-               <img src="./img/20170811o0621.microsoftgray.v3.x0048y0048.png" class="iconFloatLeft" width="48" height="48" alt="Icon 20170811°0621 Link to MS-Docs" />
+<p class="iconFloat22Left" id="id20170807o04xx">
+               <img src="./img/20170811o0621.microsoftgray.v3.x0048y0048.png" width="48" height="48" alt="Icon 20170811°0621 Link to MS-Docs" />
                MS-Docs article
                <a href="https://docs.microsoft.com/en-us/dotnet/framework/winforms/controls/load-save-and-cancel-bindingnavigator" class="extern">
                 How to: Add Load, Save, and Cancel Buttons to the Windows Forms BindingNavigator Control
@@ -781,14 +749,11 @@ End Class
                .
 </p>
 
-
-
 <p class="goodbye" id="id20170811o0414">
                eof
 </p>
 
 </div>
-
 
 <p class="imprint" id="id20170811o0412">
                .
